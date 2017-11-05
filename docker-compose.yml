@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  nginx:
+    build: .
+    ports:
+      - 8080:80
+    depends_on:
+      - back
+
+  back:
+    build: ./jongleur_back
+    environment:
+      ROCKET_ENV: production
+      JL_MONGO_DB: jongleur
+      JL_MONGO_ENDPOINT: mongodb://mongo/
+      JL_REDIS_ENDPOINT: redis://redis
+    depends_on:
+      - redis
+      - mongo
+
+  redis:
+    image: redis:3.2.10-alpine
+
+  mongo:
+    image: mongo:3.4.8

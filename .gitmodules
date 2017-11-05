@@ -1,0 +1,6 @@
+[submodule "jongleur_front"]
+	path = jongleur_front
+	url = https://github.com/prokosna/jongleur_front.git
+[submodule "jongleur_back"]
+	path = jongleur_back
+	url = https://github.com/prokosna/jongleur_back.git
