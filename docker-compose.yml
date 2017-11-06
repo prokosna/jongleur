@@ -3,9 +3,9 @@ version: '3'
 services:
   front:
     build: .
-    image: jongleur_front:0.1.1
+    image: jongleur_front:0.1.2
     ports:
-      - 8080:80
+      - 8088:80
 
   back:
     build:
