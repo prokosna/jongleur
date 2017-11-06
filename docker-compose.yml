@@ -6,23 +6,22 @@ services:
     image: jongleur_front:0.1.0
     ports:
       - 8080:80
-    depends_on:
-      - back
 
   back:
-    build: ./jongleur_back
-    image: jongleur_back:0.1.0
+    build:
+      context: ./jongleur_back
+      image: jongleur_back:0.1.0
     environment:
       ROCKET_ENV: production
-      JL_MONGO_DB: jongleur
-      JL_MONGO_ENDPOINT: mongodb://mongo/
-      JL_REDIS_ENDPOINT: redis://redis
+      MONGO_DB: jongleur
+      MONGO_ENDPOINT: mongodb://db:27017/
+      REDIS_ENDPOINT: redis://session:6379
     depends_on:
-      - redis
-      - mongo
+      - session
+      - db
 
-  redis:
+  session:
     image: redis:3.2.10-alpine
 
-  mongo:
+  db:
     image: mongo:3.4.8
