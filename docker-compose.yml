@@ -2,8 +2,11 @@ version: '3'
 
 services:
   front:
-    build: .
-    image: jongleur_front:0.1.2
+    build:
+      context: .
+      args:
+        API_URI: http://127.0.0.1:8088/api/v1
+    image: jongleur_front:0.1.4
     ports:
       - 8088:80
     depends_on:
