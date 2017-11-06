@@ -1,9 +1,10 @@
 .PHONY: build run init terminate
 
+API_URI := http://127.0.0.1:8088/api/v1
 FRONT_DIR := jongleur_front
 
 build:
-	@NODE_ENV=production \
+	export API_URI=$(API_URI) && \
 	cd $(FRONT_DIR) && \
 	npm i && \
 	npm run build && \
