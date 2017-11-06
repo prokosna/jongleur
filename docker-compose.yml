@@ -6,6 +6,8 @@ services:
     image: jongleur_front:0.1.2
     ports:
       - 8088:80
+    depends_on:
+      - back
 
   back:
     build:
