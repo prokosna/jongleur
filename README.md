@@ -14,11 +14,7 @@ Some more specs will be implemented just for enjoyment and study.
 - Generate keys for jongleur_back (Both pem and der are needed for some reasons).
 
 ```
-$ cd jongleur_back/res
-$ openssl genrsa 4096 > jongleur_jwt_key_private.pem
-$ openssl rsa -in jongleur_jwt_key_private.pem -pubout -out jongleur_jwt_key_public.pem
-$ openssl rsa -in jongleur_jwt_key_private.pem -out jongleur_jwt_key_private.der -outform der
-$ openssl rsa -pubin -in jongleur_jwt_key_public.pem -out jongleur_jwt_key_pub.der -outform der
+$ make keys
 ```
 
 - Build, Run and Terminate

@@ -1,7 +1,15 @@
-.PHONY: build run init terminate
+.PHONY: keys build run init terminate
 
 API_URI := http://127.0.0.1:8088/api/v1
 FRONT_DIR := jongleur_front
+BACK_DIR := jongleur_back
+
+keys:
+	cd $(BACK_DIR)/res && \
+	openssl genrsa 4096 > jongleur_jwt_key_private.pem && \
+	openssl rsa -in jongleur_jwt_key_private.pem -pubout -out jongleur_jwt_key_public.pem && \
+	openssl rsa -in jongleur_jwt_key_private.pem -out jongleur_jwt_key_private.der -outform der && \
+	openssl rsa -pubin -in jongleur_jwt_key_public.pem -out jongleur_jwt_key_public.der -outform der
 
 build:
 	export API_URI=$(API_URI) && \

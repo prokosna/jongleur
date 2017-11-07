@@ -13,7 +13,7 @@ services:
   back:
     build:
       context: ./jongleur_back
-    image: jongleur_back:0.1.2
+    image: jongleur_back:0.1.3
     environment:
       ROCKET_ENV: production
       MONGO_DB: jongleur
