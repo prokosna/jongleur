@@ -4,7 +4,7 @@ services:
   front:
     build:
       context: .
-    image: jongleur_front:0.1.4
+    image: jongleur_front:0.2.0
     ports:
       - 8088:80
     depends_on:
